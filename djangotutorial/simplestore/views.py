@@ -6,7 +6,7 @@ from django.views import generic
 from .models import *
 
 def index(request):
-    return HttpResponse("Welcome to the simple store!")
+    return render(request, "simplestore/index.html")
 
 
 ##this method is a generic method that will show all the records 
