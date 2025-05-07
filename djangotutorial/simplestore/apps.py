@@ -1,4 +1,6 @@
 from django.apps import AppConfig
 
+
 class SimplestoreConfig(AppConfig):
-    name = "simplestore"
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'simplestore'

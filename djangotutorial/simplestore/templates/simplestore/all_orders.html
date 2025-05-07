@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if orderList %}
+        <h1>You are now viewing all the Orders!</h1>
+        <ul>
+            {% for order in orderList  %}
+                <li><a href="/simplestore/orders/{{order.id}}">Order ID: {{order.id}} ---- Customer Name: {{order.customer.name}} ---- </a></li>
+                
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No items are available</p>
+    {% endif %}
+</body>
+</html>

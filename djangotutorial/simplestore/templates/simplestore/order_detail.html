@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if order %}
+        <h1>Order ID: {{order.id}} ----- Customer Name: {{order.customer.name}}</h1>
+        <ul>
+            {% for orderItem in orderItemList  %}
+                <li>Item: {{orderItem.item.name}} ---- Price: {{orderItem.item.defaultPrice}} ---- Quantity: {{orderItem.quantity}}</li>
+            
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No items are available</p>
+    {% endif %}
+</body>
+</html>

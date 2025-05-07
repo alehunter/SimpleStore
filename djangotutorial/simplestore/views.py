@@ -1,7 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views import generic
 
-from .models import Item
+
+from .models import *
 
 def index(request):
     return HttpResponse("Welcome to the simple store!")
@@ -16,3 +18,19 @@ def all_items(request):
     itemList = Item.objects.all()
     context = {"itemList": itemList}
     return render(request, "simplestore/all_items.html", context)
+
+def all_customers(request):
+    customerList = Customer.objects.all()
+    context = {'customerList': customerList}
+    return render(request, "simplestore/all_customers.html", context)
+
+def all_orders(request):
+    orderList = Order.objects.all()
+    context = {'orderList': orderList}
+    return render(request, "simplestore/all_orders.html", context)
+
+def order_detail(request, order_id):
+    order = Order.objects.get(id=order_id)
+    orderItemList = order.getOrderItems()
+    context = {'order': order, "orderItemList":orderItemList}
+    return render(request, "simplestore/order_detail.html", context)

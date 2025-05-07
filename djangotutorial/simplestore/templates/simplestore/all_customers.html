@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if customerList %}
+        <h1>You are now viewing all the customers!</h1>
+        <ul>
+            {% for customer in customerList  %}
+                <li>Customer Name: {{customer.name}}</li>
+            
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Customers are available</p>
+    {% endif %}
+</body>
+</html>

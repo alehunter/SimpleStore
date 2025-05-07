@@ -20,6 +20,10 @@ class Item(models.Model):
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
+    def getOrderItems(self):
+        orderItemList = OrderDetail.objects.filter(order=self.id)
+        return orderItemList
+
     def __str__(self):
         output = "Customer: "+ self.customer.name + " - Order Number: " + str(self.id)
         return output
