@@ -1,0 +1,37 @@
+table {
+    
+    width: 20%;
+    border-collapse: collapse;
+    border: 3px solid black;
+    
+}
+
+th {
+   
+   border: 3px solid black;
+   
+   
+
+}
+
+th, td{
+    padding: 10px;
+}
+
+tr > td{
+    border-style: solid;
+    text-align: center;
+}
+
+#orderDetailTopHeader > th{
+    text-align: left;
+    white-space: nowrap;
+    border-style: none;
+    
+}
+
+
+#orderDetailColumnHeaders{
+    background-color: aquamarine;
+}
+

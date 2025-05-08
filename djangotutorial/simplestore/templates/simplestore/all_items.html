@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'simplestore/style.css'%}">
 </head>
 <body>
     {% if itemList %}
         <h1>You are now viewing all the items!</h1>
-        <ul>
-            {% for item in itemList  %}
-                <li>Item Name: {{item.name}} -----  Price: {{item.defaultPrice}}</li>
-            
-            {% endfor %}
-        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Default Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in itemList  %}
+                    <tr>
+                        <td>{{item.name}}</td>
+                        <td>{{item.defaultPrice}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% else %}
         <p>No items are available</p>
     {% endif %}
