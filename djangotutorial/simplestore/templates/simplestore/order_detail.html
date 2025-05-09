@@ -10,14 +10,7 @@
 <body>
     {% if order %}
         <table>
-            <title></title>
-            <thead >
-                <tr id="orderDetailTopHeader">
-                    <th>Order Number: {{order.id}}</th>
-                    <th>Customer Name: {{order.customer.name}}</th>
-                </tr>
-    
-            </thead>
+            <caption>Order Number: {{order.id}} --- Customer Name: {{order.customer.name}}</caption>
             <tbody>
                 <tr id = "orderDetailColumnHeaders">
                     <td>Item</td>
