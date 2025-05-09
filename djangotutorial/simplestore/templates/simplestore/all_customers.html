@@ -22,5 +22,9 @@
     <p>No Customers are available</p>
 {% endif %}
 
+<form style = "margin-top: 1%;"action="{% url 'simplestore:addNewCustomer'%}">
+    <input type="submit" value="Add New Customer">
+</form>
+
 {% endblock content %}
 

@@ -34,3 +34,10 @@ def order_detail(request, order_id):
     orderItemList = order.getOrderItems()
     context = {'order': order, "orderItemList":orderItemList}
     return render(request, "simplestore/order_detail.html", context)
+
+def addNewCustomer(request):
+    if request.method == 'POST':
+        customerName = request.POST.get('customerName')
+        newCustomer = Customer(name=customerName)
+        newCustomer.save()
+    return render(request, 'simplestore/add_customer.html')

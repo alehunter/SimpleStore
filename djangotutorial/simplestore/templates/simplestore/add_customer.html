@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <label >Customer Name: 
+        <input name="customerName">
+    </label>
+    <button>Save</button>
+
+</form>
+
+
+{% endblock content %}
