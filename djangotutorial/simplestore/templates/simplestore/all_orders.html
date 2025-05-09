@@ -1,37 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'simplestore/style.css'%}">
-</head>
-<body>
-    {% if orderList %}
-        <h1>You are now viewing all the Orders!</h1>
-        <table>
-            <thead>
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if orderList %}
+    <h1>You are now viewing all the Orders!</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Customer Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orderList  %}
                 <tr>
-                    <th scope="col">Order ID</th>
-                    <th scope="col">Customer Name</th>
+                    <td>
+                        <a href="/simplestore/orders/{{order.id}}"> 
+                            {{order.id}}
+                        </a>
+                    </td>
+                    <td>{{order.customer.name}}</td>
                 </tr>
-            </thead>
-            <tbody>
-                {% for order in orderList  %}
-                    <tr>
-                        <td>
-                            <a href="/simplestore/orders/{{order.id}}"> 
-                                {{order.id}}
-                            </a>
-                        </td>
-                        <td>{{order.customer.name}}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>No Orders are available!</p>
-    {% endif %}
-</body>
-</html>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No Orders are available!</p>
+{% endif %}
+
+{% endblock content %}
+

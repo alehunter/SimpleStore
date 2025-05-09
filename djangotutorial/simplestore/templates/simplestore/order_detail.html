@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'simplestore/style.css'%}">
-</head>
-<body>
+
+{% extends "base.html" %}
+{% block content %}
+    
     {% if order %}
         <table>
             <caption>Order Number: {{order.id}} --- Customer Name: {{order.customer.name}}</caption>
@@ -34,5 +28,4 @@
     {% else %}
         <p>No items are available</p>
     {% endif %}
-</body>
-</html>
+{% endblock content %}

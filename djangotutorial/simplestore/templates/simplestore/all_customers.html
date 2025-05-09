@@ -1,31 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static%}
-    <link rel="stylesheet" href="{% static 'simplestore/style.css'%}">
-</head>
-<body>
-    {% if customerList %}
-        <h1>You are now viewing all the customers!</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Customer Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for customer in customerList %}
-                <tr>
-                    <td>{{customer.name}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>No Customers are available</p>
-    {% endif %}
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if customerList %}
+    <h1>You are now viewing all the customers!</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customerList %}
+            <tr>
+                <td>{{customer.name}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No Customers are available</p>
+{% endif %}
+
+{% endblock content %}
+
