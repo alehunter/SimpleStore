@@ -41,3 +41,10 @@ def addNewCustomer(request):
         newCustomer = Customer(name=customerName)
         newCustomer.save()
     return render(request, 'simplestore/add_customer.html')
+
+def addNewItem(request):
+    if request.method == 'POST':
+        itemName = request.POST.get('itemName')
+        itemDefaultPrice = request.POST.get('itemDefaultPrice')
+        Item(name=itemName, defaultPrice=itemDefaultPrice).save()
+    return render(request, 'simplestore/add_item.html')

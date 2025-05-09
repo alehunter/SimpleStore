@@ -21,5 +21,8 @@
     {% else %}
         <p>No items are available</p>
     {% endif %}
+    <form style = "margin-top: 1%;"action="{% url 'simplestore:addNewItem'%}">
+        <input type="submit" value="Add New Item">
+    </form>
 {% endblock content %}
 
